@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Zoom, toast } from 'react-toastify';
 
 
-export const BASE_URL = 'http://localhost:3001/api';
+export const BASE_URL = 'https://e-commerce-backend-bq3m.onrender.com/api';
 
 export const registerUserApi = async (userData) => {
     try {
