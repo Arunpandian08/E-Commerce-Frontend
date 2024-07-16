@@ -1,0 +1,103 @@
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333, 0 0 20px #333;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+}
+
+.header {
+    text-align: center;
+    margin: 1rem;
+    color:#160e3f;
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+
+.header span button {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    padding: 2px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.header span button:hover {
+    scale: 1.2;
+}
+
+.header span button:active {
+    scale: 0.96;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color:#160e3f;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+input:focus {
+    outline-width: 4px;
+    outline-color: #001eff;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.error{
+    margin-top: -1rem;
+    font-size: 0.8rem;
+    color: red;
+}
+
+.submit-btn {
+    margin: 1rem auto !important;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(255deg 50% 40%) !important;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+}
+
+.submit-btn:hover {
+    /* color: #ffffff !important; */
+    transition: all 0.2s ease;
+}
+
+.submit-btn:active {
+    transform: scale(0.96);
+}
+
+.toggle-link {
+    margin-top: 1rem;
+    color: #001eff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,55 @@
+.cancel-page {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    margin-bottom: -2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.744);
+    z-index: 999 !important;
+}
+
+.cancel-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000000, 10px 5px 20px #000000;
+}
+
+.cancel-content {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cancel-content h3 {
+    color: red !important;
+}
+
+.cancel-content i {
+    color: red !important;
+}
+
+.cancel-content button {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.cancel-content button:hover {
+    border: 1px solid white;
+}
+
+.cancel-content button:active {
+    box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}

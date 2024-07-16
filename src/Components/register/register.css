@@ -1,0 +1,107 @@
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #333, 0 0 20px #333;
+    border-radius: 10px;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.header {
+    text-align: center;
+    margin: 1rem;
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+
+.header span button {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    padding: 2px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.header span button:hover {
+    scale: 1.2;
+}
+
+.header span button:active {
+    scale: 0.96;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+input:focus {
+    outline-width: 4px;
+    outline-color: #001eff;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.error {
+    margin-top: -1rem;
+    font-size: 0.8rem;
+    color: red;
+}
+
+.submit-btn {
+    margin: 1rem auto !important;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+}
+
+.submit-btn:hover {
+    color: #000;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:active {
+    scale: 0.92;
+}
+
+.toggle-link {
+    margin-top: 1rem;
+    color: #001eff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:700px) {
+    .card-back{
+        top: -3rem !important;
+    }
+}

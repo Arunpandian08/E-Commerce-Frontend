@@ -1,0 +1,49 @@
+.app {
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100% - 80px);
+    min-height: 100svh;
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+}
+
+.products {
+    margin: 0px 10px 0px 10px;
+}
+
+.title {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.title h2,
+.material-symbols-outlined i {
+    font-size: clamp(17px, 4vw, 20px);
+}
+
+.product-card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    margin: 0 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+@media (max-width:580px) {
+    .product-card {
+        margin: 0;
+    }
+    .products {
+        margin: 0px 5px;
+    }
+    
+}

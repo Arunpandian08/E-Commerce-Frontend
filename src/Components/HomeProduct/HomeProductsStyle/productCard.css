@@ -1,0 +1,36 @@
+.h-card {
+    display: flex;
+    flex-flow: column wrap !important;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.3rem;
+    padding: 10px;
+    transition: all 0.5s ease;
+}
+
+.h-card:hover {
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #959595;
+}
+
+.h-image-container img {
+    min-height: 80px !important;
+    border-radius: 5px;
+}
+
+.h-product-details {
+    width: 100%;
+    min-height: 80px;
+}
+
+.h-product-details:has(p),h4 {
+    font-size: clamp(10px, 4vw, 15px) !important;
+}
+
+@media (max-width:580px) {
+    .h-image-container img {
+        width: 80px !important;
+        min-height: 70px !important;
+    }
+}

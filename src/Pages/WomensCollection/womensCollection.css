@@ -1,0 +1,106 @@
+.womens-collection {
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100% - 80px);
+    min-height: 100vh;
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.womens-collection .w-title h3 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-top: 1.5rem;
+}
+
+.womens-collection-cards {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.w-card {
+    width: 300px;
+    height: 500px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(237, 235, 234); */
+    box-shadow: 0 0 20px #a5a5a5, inset 0 0 20px #a5a5a5;
+    border-radius: 10px;
+    padding: 15px 15px 0 15px;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.w-card:hover img{
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+.w-product-description-placeholder {
+    margin-top: 10px; /* Adjust margin as needed */
+    color: #888; /* Placeholder text color */
+    font-style: italic; /* Optionally style as italic */
+}
+
+.w-card .image-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 5px;
+    transition: all 0.5s ease;
+}
+
+.w-product-details {
+    padding: 16px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    gap: -1px;
+}
+
+.w-product-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.w-product-prices {
+    margin: 8px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    margin-right: 8px;
+    color: #888;
+}
+
+.new-price {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.w-add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #5e3ebb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.w-add-to-cart-btn:hover {
+    background-color: #218838;
+}
+

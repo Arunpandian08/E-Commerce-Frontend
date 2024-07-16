@@ -1,0 +1,68 @@
+footer {
+    position: relative;
+    min-height: 20vh;
+    height: 100%;
+    bottom: 0 !important;
+    background: #252525 !important;
+    background-position: center;
+    background-size: cover;
+}
+
+/* @media (min-width:768px) {
+    footer{
+        margin-top: 2rem;
+    }
+} */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding:20px;
+    margin-bottom: 0 !important;
+    margin: 0 auto;
+    width: calc(min(992px, 100%));
+}
+.about h4,
+.policy h4,
+.address h4 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.about ul li,
+.policy ul li,
+.address address {
+    color: #fff;
+    font-size: clamp(12px, 10%,14px);
+    font-weight: 400;
+}
+
+:is(.about, .policy, address):has(h4) {
+    color: #fff;
+}
+
+.legal {
+    color: #ffff;
+    font-size: clamp(12px, 10%,14px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (max-width:768px) {
+    .legal{
+        display: block;
+        text-align: center;
+    }
+    .links {
+        gap: 10px;
+    }
+    footer{
+        margin-top: 2rem;
+    }
+}

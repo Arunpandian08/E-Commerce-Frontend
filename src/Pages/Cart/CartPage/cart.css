@@ -1,0 +1,358 @@
+section {
+  margin: 0 auto;
+  width: 80%;
+  min-height: 68svh;
+  max-height: 100%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.copy i{
+  position: relative;
+  top: -10px;
+  left: -5px;
+  color: #006aff !important;
+  transition: all 0.2s ease;
+}
+.copy:hover i{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.copy:active i{
+  transform: scale(0.95);
+}
+
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(min(90svh));
+}
+
+.cartItems {
+  flex-basis: 50%;
+  padding-right: 20px;
+  border-right: 2px solid black;
+  height: calc(min(90svh));
+  overflow-y: scroll !important;
+}
+
+.consolidate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-basis: 50%;
+}
+
+.consolidate h4,
+.consolidate h3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+h4 .price {
+  font-variant-numeric: tabular-nums !important;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+h3 span i:hover {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: 'Edit';
+    top: -12px;
+    left: 0;
+    font-size: 0.5rem;
+    color: white;
+    background: #333;
+    padding: 2px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+}
+
+h3 span i:active {
+  transform: scale(0.96);
+}
+
+.consolidate h4 span,
+.consolidate h3 span {
+  font-weight: 700;
+  color: rgb(6, 20, 180);
+}
+
+.userAddress ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+hr {
+  margin: 1rem 0;
+}
+
+.userAddress li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  & ::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.userAddress .label {
+  color: #000 !important;
+  font-weight: 500;
+  flex-basis: 100%;
+}
+
+@media (max-width:769px) {
+  .userAddress .label {
+    flex-basis: 50% !important;
+  }
+}
+
+.userAddress .value {
+  display: flex;
+  font-size: clamp(14px, 10%, 16px);
+  word-break: break-all;
+  -ms-word-break: break-all;
+  font-weight: 600;
+  color: rgb(6, 20, 180);
+  flex-basis: 40%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.clear {
+  position: relative;
+  font-size: 1em;
+  width: 140px;
+  height: 40px;
+  background-color: #BF0426;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.clear b {
+  color: #DEDEDE !important;
+}
+
+.clear:hover {
+  cursor: pointer;
+}
+
+.clear::before {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, rgb(248, 248, 248) 0%, rgb(158, 157, 157) 50%, rgba(150, 4, 31, 1) 50%, rgba(191, 4, 38, 1) 60%);
+  border-radius: 0 0 0.5em 0;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.clear:hover::before {
+  width: 1em;
+  height: 1em;
+}
+
+.clear:active {
+  box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+  transform: translate(0.1em, 0.1em);
+}
+.clear:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+.CartBtn {
+  width: 140px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: #ffd000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .5s;
+  overflow: hidden;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #080808;
+  transition-duration: .5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: .5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: .5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
+}
+
+.CartBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.shop {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  border-radius: 50px;
+  background-color: hsl(255deg 50% 40%);
+  border: solid 4px hsl(50deg 100% 50%);
+  font-family: inherit;
+}
+
+.default-btn,
+.hover-btn {
+  background-color: hsl(255deg 50% 40%);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+.hover-btn {
+  position: absolute;
+  inset: 0;
+  background-color: hsl(255deg 50% 49%);
+  transform: translate(0%, 100%);
+}
+
+.default-btn span {
+  color: hsl(0, 0%, 100%);
+}
+
+.hover-btn span {
+  color: hsl(50deg 100% 50%);
+}
+
+.shop:hover .default-btn {
+  transform: translate(0%, -100%);
+}
+
+.shop:hover .hover-btn {
+  transform: translate(0%, 0%);
+}
+
+.shop:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
+}
+
+
+.notice {
+  margin-top: 2rem;
+  padding: 10px;
+  border: 3px double red;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.326);
+}
+
+.notice h5 {
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.notice .list {
+  font-size: clamp(14px, 10%, 16px);
+}
+
+.list-notice {
+  list-style-position:inside;
+  list-style-type:disc !important;
+}
+
+
+
+@media (max-width: 992px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .cartItems {
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+
+  .cartItems,
+  .consolidate {
+    width: 100%;
+  }
+}

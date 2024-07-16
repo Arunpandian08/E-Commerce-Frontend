@@ -1,0 +1,142 @@
+.user-container {
+  margin: 0 auto;
+  min-height: 100vh;
+  margin-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 1rem;
+  background-color: #ededed5c;
+}
+
+.edit-button {
+  cursor: pointer;
+  font-size: clamp(12px, 10%, 20px);
+  font-family: inherit;
+  font-weight: bold;
+  color: #0011ff;
+  background-color: #f8f8fd;
+  padding: 5px 20px;
+  border-radius: 50em;
+  border: 6px solid #727bf5;
+  box-shadow: 0px 8px hsla(255, 50%, 40%, 0.748);
+}
+
+.edit-button:active {
+  position: relative;
+  top: 8px;
+  border: 6px solid #1b29f1;
+  box-shadow: 0px 0px;
+}
+
+
+.user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  padding: 1rem;
+}
+
+.user-profile img {
+  width: 120px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.user-data {
+  margin-left: 2rem;
+}
+
+.user-data:has(p) {
+  font-size: clamp(12px, 10%, 16px);
+}
+
+.form .user-label {
+  font-size: clamp(16px, 10%, 18px);
+  margin-bottom: -1rem;
+}
+
+.user-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form {
+  width: 50%;
+}
+
+@media (max-width:500px) {
+
+  .form,
+  .user-header,
+  .user-details {
+    width: 100%;
+  }
+  .user-form{
+    padding: 0 10px;
+  }
+}
+
+.submit-btn {
+  font-family: inherit;
+  font-size: clamp(16px, 10%, 20px);
+  background: royalblue;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.submit-btn span {
+  color: white !important;
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-btn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.submit-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.submit-btn:hover svg {
+  transform: translateX(1.8em) rotate(45deg) scale(1.1);
+}
+
+.submit-btn:hover span {
+  transform: translateX(5em);
+}
+
+.submit-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}

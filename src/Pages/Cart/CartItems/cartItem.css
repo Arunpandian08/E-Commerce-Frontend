@@ -1,0 +1,140 @@
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+@media (max-width:700px) {
+    .cart-item{
+        display: flex;
+        flex-direction: column !important;
+    }
+    .product,.totals{
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+@media (max-width:500px) {
+    .product{
+        justify-content: start !important;
+        align-items: center !important;
+    }
+    .totals{
+        align-items:  flex-start !important;
+    }
+}
+
+.product {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cart-item .img {
+    margin-right: 20px;
+    width: 80px;
+    
+}
+
+.cart-item .img img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.old-price {
+    text-decoration: line-through;
+    margin-right: 8px;
+    color: #888;
+}
+.new-price,.old-price{
+    font-variant-numeric: tabular-nums !important;
+}
+.new-price {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+
+.product-rating .star {
+    font-size: 1rem;
+}
+
+.product-rating .star.filled i {
+    color: #ffcc00;
+    /* Filled star color */
+}
+
+.product-rating .star i {
+    color: #bcbbbb;
+    /* Outlined star color */
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: clamp(15px,10%,18px);
+    &::first-letter{
+        text-transform: uppercase;
+    }
+}
+
+.cart-item p {
+    font-size: clamp(12px,10%,16px);
+    margin: 5px 0;
+}
+.cart-item p span{
+    font-size: clamp(12px,10%,16px);
+}
+
+.totals{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.5s ease;
+}
+
+.totals .minus{
+    background: #ff0000;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 2px 15px;
+    margin: 0 1rem 0 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.totals .plus{
+    background: #00ff77;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 2px 15px;
+    margin: 0 0 0 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.totals .quant{
+    font-size: 1rem;
+}
+
+.plus:active{
+    transform: scale(0.96);
+}
+.minus:active{
+    transform: scale(0.96);
+}
+
+.totals p{
+    font-size: clamp(14px,10%,16px);
+    font-weight: 600;
+}

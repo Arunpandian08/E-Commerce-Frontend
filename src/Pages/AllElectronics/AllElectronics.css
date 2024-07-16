@@ -1,0 +1,112 @@
+.electronics {
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100% - 80px);
+  min-height: 100vh;
+  margin-top: 4.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.electronics .e-title h3 {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-top: 1.5rem;
+}
+
+.electronics-cards {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.e-card {
+  width: 300px;
+  height: 550px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(237, 235, 234); */
+  box-shadow: 0 0 20px #a5a5a5, inset 0 0 20px #a5a5a5;
+  margin-top: 10px;
+  border-radius: 10px;
+  /* padding: 15px 15px 0 15px; */
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.e-card:hover img{
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.e-card .image-container img {
+  width: 200px;
+  height: 180px;
+  border-radius: 15px;
+  padding: 5px;
+  transition: all 0.5s ease;
+}
+
+.e-product-details {
+  padding: 16px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: -1px;
+}
+
+.e-product-rating .star {
+  font-size: 1.2rem;
+}
+
+.e-product-rating .star.filled i {
+  color: #ffcc00;
+  /* Filled star color */
+}
+
+.e-product-rating .star i {
+  color: #ddd;
+  /* Outlined star color */
+}
+
+.e-product-description {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.e-product-prices {
+  margin: 8px 0;
+}
+
+.e-old-price {
+  text-decoration: line-through;
+  margin-right: 8px;
+  color: #888;
+}
+
+.e-new-price {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.e-add-to-cart-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #5e3ebb;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.e-add-to-cart-btn:hover {
+  background-color: #218838;
+}
