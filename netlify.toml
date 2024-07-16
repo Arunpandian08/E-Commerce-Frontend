@@ -1,0 +1,5 @@
+[[redirects]]
+  # Redirect all requests to the root of the site (for single-page applications)
+  from = "/*"
+  to = "/index.html"
+  status = 200
