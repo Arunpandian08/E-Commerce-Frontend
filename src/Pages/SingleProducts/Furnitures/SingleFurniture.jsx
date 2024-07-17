@@ -12,7 +12,7 @@ const SingleFurniture = () => {
   const dispatch = useDispatch();
 
   const { furnitures, loadingProducts, isLoading } = useSelector(state => ({
-    furnitures: state.products.productsData,
+    furnitures: state.products.productsData.furnitures,
     loadingProducts: state.products.loadingProducts
   }));
 

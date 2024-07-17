@@ -11,7 +11,7 @@ const Watch = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { androidWatches, loadingProducts, isLoading } = useSelector(state => ({
-        androidWatches:state.products.productsData,
+        androidWatches:state.products.productsData.androidWatches,
         loadingProducts: state.products.loadingProducts
     }))
     if (isLoading) return <Loader />

@@ -12,7 +12,7 @@ const Furniture = () => {
   const navigate = useNavigate();
   const [showFullDescription, setShowFullDescription] = useState({});
   const { furnitures, loadingProducts, isLoading } = useSelector(state => ({
-    furnitures: state.products.productsData,
+    furnitures: state.products.productsData.furnitures,
     loadingProducts: state.products.loadingProducts
   }));
 

@@ -11,7 +11,7 @@ const Mens = () => {
     const dispatch = useDispatch();
 
     const { mensProducts, loadingProducts, isLoading } = useSelector(state => ({
-        mensProducts: state.products.productsData,
+        mensProducts: state.products.productsData.mensProducts,
         loadingProducts: state.products.loadingProducts
     }));
     if (isLoading) return <Loader />;

@@ -12,7 +12,7 @@ const WomensCollection = () => {
     const navigate = useNavigate()
 
     const { womensProducts, loadingProducts, isLoading } = useSelector(state => ({
-        womensProducts: state.products.productsData,
+        womensProducts: state.products.productsData.womensProducts,
         loadingProducts: state.products.loadingProducts
     }))
 

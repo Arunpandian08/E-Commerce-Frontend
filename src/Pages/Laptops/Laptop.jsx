@@ -12,7 +12,7 @@ const Laptop = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { laptops,loadingProducts, isLoading } = useSelector(state =>({
-        laptops: state.products.productsData,
+        laptops: state.products.productsData.laptops,
         loadingProducts: state.products.loadingProducts
     }))
     if (isLoading) return <Loader />

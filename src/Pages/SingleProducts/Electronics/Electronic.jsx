@@ -12,7 +12,7 @@ const Electronic = () => {
     const dispatch = useDispatch();
     const [animationClass, setAnimationClass] = useState('animate__fadeInUp');
     const { allElectronics, loadingProducts, isLoading } = useSelector(state => ({
-        allElectronics: state.products.productsData,
+        allElectronics: state.products.productsData.allElectronics,
         loadingProducts: state.products.loadingProducts
     }));
 

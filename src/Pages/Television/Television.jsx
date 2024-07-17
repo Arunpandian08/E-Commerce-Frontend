@@ -12,7 +12,7 @@ const Television = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { televisions,loadingProducts, isLoading } = useSelector(state => ({
-        televisions: state.products.productsData,
+        televisions: state.products.productsData.televisions,
         loadingProducts:state.products.loadingProducts
     }))
     if (isLoading) return <Loader />
