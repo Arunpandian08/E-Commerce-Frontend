@@ -16,7 +16,7 @@ const AllElectronics = () => {
         dispatch(getAllElectronics());
     }, [dispatch]);
 
-    const { allElectronics } = useSelector(state => state.products.productsData);
+    const { allElectronics, isLoading } = useSelector(state => state.products.productsData);
 
     const handleAddToCart = (product) => {
         dispatch(addToCart({ _id: product._id, category: 'electronics' }));
@@ -63,7 +63,24 @@ const AllElectronics = () => {
                                 <span className="e-old-price">₹{formatPrice(item.product_old_price)}</span>
                                 <span className="e-new-price"><strong>₹{formatPrice(item.product_new_price)}</strong></span>
                             </div>
-                            <button className="e-add-to-cart-btn" onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                            <button className="e-add-to-cart-btn" onClick={() => handleAddToCart(item)}>
+                                {isLoading ? (
+                                    <div className="spinner-2">
+                                        <div className="dot-spinner">
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                            <div className="dot-spinner__dot"></div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    "Add to Cart"
+                                )}
+                              </button>  
                         </div>
                     </div>
                 ))}
