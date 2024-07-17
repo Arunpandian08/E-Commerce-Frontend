@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Redux/cartSlice';
 import { getAllElectronics, setLoadingProduct } from '../../Redux/ProductSlice';
 import { formatPrice } from '../../Utilities/Utils';
+import Loader from '../../Utilities/Loader/Loader';
 
 const AllElectronics = () => {
     const navigate = useNavigate();
@@ -15,10 +16,11 @@ const AllElectronics = () => {
         dispatch(getAllElectronics());
     }, [dispatch]);
 
-    const { allElectronics, loadingProducts } = useSelector(state => ({
+    const { allElectronics, loadingProducts ,isLoading } = useSelector(state => ({
         allElectronics: state.products.productsData.allElectronics,
         loadingProducts: state.products.loadingProducts
     }));
+    if (isLoading) return <Loader /> 
 
     const handleAddToCart = (product) => {
         dispatch(setLoadingProduct({productId:product._id,isLoading:true}))
