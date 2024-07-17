@@ -126,6 +126,7 @@ const productSlice = createSlice({
             // Handle getAllElectronics
             .addCase(getAllElectronics.pending, (state) => {
                 state.isLoading = true;
+                state.error= null;
             })
             .addCase(getAllElectronics.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -139,6 +140,7 @@ const productSlice = createSlice({
             // Handle getMensProducts
             .addCase(getMensProducts.pending, (state) => {
                 state.isLoading = true;
+                state.error = null
             })
             .addCase(getMensProducts.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -152,6 +154,7 @@ const productSlice = createSlice({
             // Handle getWomensProducts
             .addCase(getWomensProducts.pending, (state) => {
                 state.isLoading = true;
+                state.error= null;
             })
             .addCase(getWomensProducts.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -165,6 +168,7 @@ const productSlice = createSlice({
             // Handle getFurnitures
             .addCase(getFurnitures.pending, (state) => {
                 state.isLoading = true;
+                state.error =null;
             })
             .addCase(getFurnitures.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -178,6 +182,7 @@ const productSlice = createSlice({
             // Handle getMobiles
             .addCase(getMobiles.pending, (state) => {
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(getMobiles.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -191,6 +196,7 @@ const productSlice = createSlice({
             // Handle getTelevisions
             .addCase(getTelevisions.pending, (state) => {
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(getTelevisions.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -204,6 +210,7 @@ const productSlice = createSlice({
             // Handle getLaptops
             .addCase(getLaptops.pending, (state) => {
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(getLaptops.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -217,6 +224,7 @@ const productSlice = createSlice({
             // Handle getAndroidWatches
             .addCase(getAndroidWatches.pending, (state) => {
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(getAndroidWatches.fulfilled, (state, action) => {
                 state.isLoading = false;
