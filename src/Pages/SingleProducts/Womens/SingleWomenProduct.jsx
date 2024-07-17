@@ -3,14 +3,19 @@ import './SingleWomenProduct.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../../Utilities/Loader/Loader';
-import { getWomensProducts } from '../../../Redux/ProductSlice';
+import { getWomensProducts, setLoadingProduct } from '../../../Redux/ProductSlice';
 import { addToCart } from '../../../Redux/cartSlice';
 
 const SingleWomenProduct = () => {
   const { _id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { womensProducts, isLoading } = useSelector(state => state.products.productsData);
+
+  const { womensProducts, loadingProducts, isLoading } = useSelector(state => ({
+    womensProducts: state.products.productsData,
+    loadingProducts: state.products.loadingProducts
+  }))
+
   const [animationClass, setAnimationClass] = useState('animate__fadeInUp');
 
   useEffect(() => {
@@ -19,8 +24,10 @@ const SingleWomenProduct = () => {
   }, [_id, dispatch]);
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart({ _id: product._id, category: "womens" }));
-  };
+    dispatch(setLoadingProduct({ productId: product._id, isLoading: true }))
+    dispatch(addToCart({ _id: product._id, category: 'womens' }))
+      .finally(() => dispatch(setLoadingProduct({ productId: product._id, isLoading: false })));
+  }
 
   const handleNavigate = (direction) => {
     const currentIndex = womensProducts.findIndex(element => element._id === _id);
@@ -77,7 +84,24 @@ const SingleWomenProduct = () => {
           <div className="w-single-product-prices">
             <span className="new-price"><strong>₹ {item.price}</strong></span>
           </div>
-          <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>Add to Cart</button>
+          <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>
+            {loadingProducts[item._id] ? (
+              <div className="spinner-2">
+                <div className="dot-spinner">
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                  <div className="dot-spinner__dot"></div>
+                </div>
+              </div>
+            ) : (
+              "Add to Cart"
+            )}
+          </button>
         </div>
       </div>
       <div className="navigation-buttons animate__animated animate__bounceInLeft">

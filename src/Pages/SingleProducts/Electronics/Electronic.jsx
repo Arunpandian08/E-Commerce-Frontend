@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './electronic.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllElectronics } from '../../../Redux/ProductSlice';
+import { getAllElectronics, setLoadingProduct } from '../../../Redux/ProductSlice';
 import Loader from '../../../Utilities/Loader/Loader';
 import { addToCart } from '../../../Redux/cartSlice';
 
@@ -10,40 +10,46 @@ const Electronic = () => {
     const { _id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { allElectronics, isLoading } = useSelector(state => state.products.productsData);
     const [animationClass, setAnimationClass] = useState('animate__fadeInUp');
+    const { allElectronics, loadingProducts, isLoading } = useSelector(state => ({
+        allElectronics: state.products.productsData,
+        loadingProducts: state.products.loadingProducts
+    }));
+
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(getAllElectronics());
     }, [_id, dispatch]);
 
     const handleAddToCart = (product) => {
+        dispatch(setLoadingProduct({ productId: product._id, isLoading: true }))
         dispatch(addToCart({ _id: product._id, category: 'electronics' }))
-    }
+            .finally(() => dispatch(setLoadingProduct({ productId: product._id, isLoading: false })));
+    };
 
-    const handleNavigate =(direction)=>{
+    const handleNavigate = (direction) => {
         const currentIndex = allElectronics.findIndex(element => element._id === _id)
         let targetIndex;
         let outAnimation, inAnimation
 
-        if(direction === 'next'){
+        if (direction === 'next') {
             targetIndex = currentIndex + 1;
             outAnimation = 'animate__bounceOutLeft';
             inAnimation = 'animate__bounceInRight';
         }
-        else{
+        else {
             targetIndex = currentIndex - 1;
             outAnimation = 'animate__bounceOutRight';
             inAnimation = 'animate__bounceInLeft';
         }
 
-        if(targetIndex >=0 && targetIndex < allElectronics.length){
+        if (targetIndex >= 0 && targetIndex < allElectronics.length) {
             setAnimationClass(outAnimation)
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 setAnimationClass(inAnimation);
                 navigate(`/electronics/${allElectronics[targetIndex]._id}`)
-            },300)
+            }, 300)
         }
     }
 
@@ -101,12 +107,29 @@ const Electronic = () => {
                         {renderDescription(item.product_description)}
                     </ul>
                     <div className="btn">
-                        <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>Add to Cart</button>
+                        <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>
+                            {loadingProducts[item._id] ? (
+                                <div className="spinner-2">
+                                    <div className="dot-spinner">
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                    </div>
+                                </div>
+                            ) : (
+                                "Add to Cart"
+                            )}
+                        </button>
                     </div>
                 </div>
             </div>
             <div className="navigation-buttons animate__animated animate__bounceInLeft">
-                {currentIndex >0 && (
+                {currentIndex > 0 && (
                     <button onClick={() => handleNavigate('prev')} className="nav-btn">
                         Prev
                     </button>

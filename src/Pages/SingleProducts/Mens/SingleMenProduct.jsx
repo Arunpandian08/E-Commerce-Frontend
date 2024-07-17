@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SingleMensProduct.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMensProducts } from '../../../Redux/ProductSlice';
+import { getMensProducts, setLoadingProduct } from '../../../Redux/ProductSlice';
 import Loader from '../../../Utilities/Loader/Loader';
 import { addToCart } from '../../../Redux/cartSlice';
 
@@ -11,7 +11,10 @@ const SingleMenProduct = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { mensProducts, isLoading } = useSelector(state => state.products.productsData);
+    const { mensProducts, loadingProducts, isLoading } = useSelector(state => ({
+        mensProducts: state.products.productsData,
+        loadingProducts: state.products.loadingProducts
+    }));
 
     const [animationClass, setAnimationClass] = useState('animate__fadeInUp');
 
@@ -21,8 +24,10 @@ const SingleMenProduct = () => {
     }, [_id, dispatch]);
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart({ _id: product._id, category: 'mens' }));
-    };
+        dispatch(setLoadingProduct({ productId: product._id, isLoading: true }))
+        dispatch(addToCart({ _id: product._id, category: 'mens' }))
+            .finally(() => dispatch(setLoadingProduct({ productId: product._id, isLoading: false })));
+    }
 
     const handleNavigate = (direction) => {
         const currentIndex = mensProducts.findIndex(element => element._id === _id);
@@ -45,7 +50,7 @@ const SingleMenProduct = () => {
             setTimeout(() => {
                 setAnimationClass(inAnimation);
                 navigate(`/mens-collections/${mensProducts[targetIndex]._id}`);
-            }, 300); 
+            }, 300);
         }
     };
 
@@ -93,7 +98,24 @@ const SingleMenProduct = () => {
                         <li>{renderDescription(item.Description)}</li>
                     </ul>
                     <div className="btn">
-                        <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>Add to Cart</button>
+                        <button className="e-add-to-cart-btn" onClick={() => { handleAddToCart(item) }}>
+                            {loadingProducts[item._id] ? (
+                                <div className="spinner-2">
+                                    <div className="dot-spinner">
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                        <div className="dot-spinner__dot"></div>
+                                    </div>
+                                </div>
+                            ) : (
+                                "Add to Cart"
+                            )}
+                        </button>
                     </div>
                 </div>
             </div>

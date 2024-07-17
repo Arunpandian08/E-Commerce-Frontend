@@ -20,6 +20,7 @@ const AllElectronics = () => {
         allElectronics: state.products.productsData.allElectronics,
         loadingProducts: state.products.loadingProducts
     }));
+    
     if (isLoading) return <Loader /> 
 
     const handleAddToCart = (product) => {

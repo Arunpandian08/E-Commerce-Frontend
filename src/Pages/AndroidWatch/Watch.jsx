@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Loader from '../../Utilities/Loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getAndroidWatches } from '../../Redux/ProductSlice'
+import { getAndroidWatches, setLoadingProduct } from '../../Redux/ProductSlice'
 import { addToCart } from '../../Redux/cartSlice'
 import '../Mobiles/mobile.css'
 
@@ -10,7 +10,10 @@ const Watch = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { androidWatches, isLoading } = useSelector(state => state.products.productsData)
+    const { androidWatches, loadingProducts, isLoading } = useSelector(state => ({
+        androidWatches:state.products.productsData,
+        loadingProducts: state.products.loadingProducts
+    }))
     if (isLoading) return <Loader />
 
     useEffect(() => {
@@ -19,7 +22,9 @@ const Watch = () => {
     }, [dispatch])
 
     const handleAddToCart = (product) => {
+        dispatch(setLoadingProduct({productId:product._id,isLoading:true}))
         dispatch(addToCart({ _id: product._id, category: 'electronics' }))
+        .finally(() => dispatch(setLoadingProduct({ productId: product._id, isLoading: false })));
     }
 
     const calculateRatingStars = (rating) => {
@@ -64,7 +69,7 @@ const Watch = () => {
                                 <span className="e-new-price"><strong>₹{item.product_new_price}</strong></span>
                             </div>
                             <button className="e-add-to-cart-btn" onClick={()=>handleAddToCart(item)}>
-                            {isLoading ? (
+                            {loadingProducts[item._id] ? (
                                     <div className="spinner-2">
                                         <div className="dot-spinner">
                                             <div className="dot-spinner__dot"></div>
