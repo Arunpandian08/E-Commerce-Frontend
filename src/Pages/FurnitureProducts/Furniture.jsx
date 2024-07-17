@@ -69,7 +69,7 @@ const Furniture = () => {
                   <span className="new-price">₹{formatPrice(furniture.price)}</span>
                 </div>
                 <button className="add-to-cart-btn" onClick={() => handleAddToCart(furniture)}>
-                  {loadingProducts[item._id] ? (
+                  {loadingProducts[furniture._id] ? (
                     <div className="spinner-2">
                       <div className="dot-spinner">
                         <div className="dot-spinner__dot"></div>
