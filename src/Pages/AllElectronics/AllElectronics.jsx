@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import './AllElectronics.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../Utilities/Loader/Loader';
 import { addToCart } from '../../Redux/cartSlice';
-import { getAllElectronics } from '../../Redux/ProductSlice';
+import { getAllElectronics, setLoadingProduct } from '../../Redux/ProductSlice';
 import { formatPrice } from '../../Utilities/Utils';
 
 const AllElectronics = () => {
@@ -16,10 +15,15 @@ const AllElectronics = () => {
         dispatch(getAllElectronics());
     }, [dispatch]);
 
-    const { allElectronics, isLoading } = useSelector(state => state.products.productsData);
+    const { allElectronics, loadingProducts } = useSelector(state => ({
+        allElectronics: state.products.productsData.allElectronics,
+        loadingProducts: state.products.loadingProducts
+    }));
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart({ _id: product._id, category: 'electronics' }));
+        dispatch(setLoadingProduct({productId:product._id,isLoading:true}))
+        dispatch(addToCart({ _id: product._id, category: 'electronics' }))
+        .finally(() => dispatch(setLoadingProduct({ productId: product._id, isLoading: false })));
     };
 
     const calculateRatingStars = (rating) => {
@@ -64,7 +68,7 @@ const AllElectronics = () => {
                                 <span className="e-new-price"><strong>₹{formatPrice(item.product_new_price)}</strong></span>
                             </div>
                             <button className="e-add-to-cart-btn" onClick={() => handleAddToCart(item)}>
-                                {isLoading ? (
+                                {loadingProducts[item._id] ? (
                                     <div className="spinner-2">
                                         <div className="dot-spinner">
                                             <div className="dot-spinner__dot"></div>

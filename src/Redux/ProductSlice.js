@@ -112,6 +112,7 @@ const initialState = {
         laptops: [],
         androidWatches: [],
     },
+    loadingProducts: {},
     isLoading: false,
     error: null
 };
@@ -120,7 +121,12 @@ const initialState = {
 const productSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {},
+    reducers: {
+        setLoadingProduct: (state, action) => {
+            const { productId, isLoading } = action.payload;
+            state.loadingProducts[productId] = isLoading;
+        }
+    },
     extraReducers: (builder) => {
         builder
             // Handle getAllElectronics
@@ -238,4 +244,5 @@ const productSlice = createSlice({
     }
 });
 
+export const { setLoadingProduct } = productSlice.actions;
 export default productSlice.reducer;
